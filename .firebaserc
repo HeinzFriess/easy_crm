@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "hfs-simple-crm": {
+      "hosting": {
+        "easy_CRM": [
+          "hfs-simple-crm"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "hfs-simple-crm"
+  }
+}
