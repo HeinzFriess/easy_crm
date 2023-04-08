@@ -1,6 +1,24 @@
-<p>user works!</p>
+<mat-card>
+    <mat-card-content>
+        <table class="userTable">
+            <tr>
+                <th>Name</th>
+                <th>E-Mail</th>
+                <th>City</th>
+                <th>Phone</th>
+            </tr>
+            <tr *ngFor="let user of users">
+                <td>{{user.firstName}} {{user.lastName}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.city}}</td>
+                <td>{{user.phone}}</td>
+            </tr>
+        </table>
+    </mat-card-content>
+</mat-card>
 
 
-<button mat-fab color="primary" class="addUserButton" matTooltip="add a User" [matTooltipPosition]="'above'" (click)="openDialog()">
+<button mat-fab color="primary" class="addUserButton" matTooltip="add a User" [matTooltipPosition]="'above'"
+    (click)="openDialog()">
     <mat-icon>add</mat-icon>
 </button>

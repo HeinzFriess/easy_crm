@@ -3,3 +3,25 @@
     right: 54px;
     bottom: 54px;
 }
+
+.userTable{
+    width: 100%;
+    border-collapse: collapse;
+
+    tr{
+        border-bottom: 1px solid rgba(0,0,0,0.4);
+        &:last-child {
+            border-bottom: 0;
+        }
+    }  
+
+    th{
+        text-align: start;
+        color: rgba(0,0,0,0.4);
+    }
+
+    td{
+        padding-top: 32px;
+    }
+    
+}
