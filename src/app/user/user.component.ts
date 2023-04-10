@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.component';
-import { User } from 'src/models/user.class';
+//import { User } from 'src/models/user.class';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Component({
@@ -11,7 +11,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 })
 export class UserComponent implements OnInit {
 
-  users!: User[];
+  users:any = [];
 
 
 
@@ -24,11 +24,10 @@ export class UserComponent implements OnInit {
   ngOnInit(){
     this.firstore
       .collection('users')
-      .valueChanges()
+      .valueChanges({idField: 'customIdName'})
       .subscribe((changes: any) => {
         console.log('received:', changes);
         this.users = changes;
-        
       })
   }
 
