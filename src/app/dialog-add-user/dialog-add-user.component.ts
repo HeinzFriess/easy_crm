@@ -25,8 +25,6 @@ export class DialogAddUserComponent {
       .add(this.user.toJSON())
       .then((result: any) => {
         this.loading = false;
-        console.log('Adding', result)
-        
       });
     
   }

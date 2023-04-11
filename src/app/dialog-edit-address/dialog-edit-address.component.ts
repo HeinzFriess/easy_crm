@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { User } from 'src/models/user.class';
 
 @Component({
@@ -8,10 +9,23 @@ import { User } from 'src/models/user.class';
 })
 export class DialogEditAddressComponent {
   user!: User;
+  userId:string = '';
   loading = false;
+
+  constructor(private firstore: AngularFirestore) {}
 
 
   saveChanges(){
+    this.loading = true;
 
+    this.firstore
+      .collection('users')
+      .doc(this.userId)
+      .update(this.user.toJSON())
+      .then(()=> {
+        this.loading = false;
+      })
+    
+    
   }
 }

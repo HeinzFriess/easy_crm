@@ -26,7 +26,6 @@ export class UserComponent implements OnInit {
       .collection('users')
       .valueChanges({idField: 'customIdName'})
       .subscribe((changes: any) => {
-        console.log('received:', changes);
         this.users = changes;
       })
   }

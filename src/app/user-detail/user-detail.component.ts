@@ -21,7 +21,6 @@ export class UserDetailComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      console.log(params['id']) //log the value of id
       this.userId = params['id']
       this.getUser();
     });
@@ -34,18 +33,19 @@ export class UserDetailComponent implements OnInit {
       .valueChanges()
       .subscribe((user: any) => {
         this.user = new User(user);
-        console.log('diesr user ',this.user);
       });
-    //console.log(this.user);
   }
 
   editAdressDialog(){
     let dialog = this.dialog.open(DialogEditAddressComponent);
-    dialog.componentInstance.user = this.user;
+    dialog.componentInstance.user = new User(this.user.toJSON());
+    dialog.componentInstance.userId = this.userId;
   }
 
   editDetailDialog(){
-    this.dialog.open(DialogEditUserComponent);
+    let dialog = this.dialog.open(DialogEditUserComponent);
+    dialog.componentInstance.user = new User(this.user.toJSON());
+    dialog.componentInstance.userId = this.userId;
   }
 
 }
